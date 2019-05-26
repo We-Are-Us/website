@@ -12,11 +12,11 @@
     <div class="d-none d-xl-block">
         <div style="background-image: url('{{heroImageSet.xl}}'); background-position: center center; background-repeat: no-repeat; background-size: cover; position: absolute; margin: 0px; padding: 0px; height: 80vh; width: 100vw; z-index: -1;"></div>
     </div>
-    {{> navigation }}
+    {{> navigation features=./features }}
     <div class="container text-white pt-3 pt-lg-5 mx-auto">
         <div class="row">
             <div class="col-11 col-sm-8 col-md-6">
-                <h1 class="display-5">
+                <h1 class="h1">
                     {{heroHeader}}
                 </h1>
                 <p class="lead">
@@ -26,6 +26,39 @@
         </div>
     </div>
 </div>
+<div class="container bg-white text-primary py-3 py-lg-5 mx-auto">
+    <div class="row px-lg-5">
+        <div class="col-12 px-lg-5">
+            <p class="lead text-center">
+                {{leadText}}
+            </p>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        {{#each cards}}
+            <div class="col-12 col-md-6">
+                <div class="card border-0">
+                    <div class="mx-auto">
+                        <img src={{this.image.url}} class="card-img-top" style="max-width: 240px;"/>
+                    </div>
+                    <div class="card-body px-0">
+                        <h5 class="card-title text-primary text-center">{{this.title}}</h5>
+                    </div>
+                    <div class="card-text">
+                        {{#each this.text.paragraphs}}
+                            <p>{{this}}</p>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+<!--
+<div class="col-12 col-md-6"><div class="card border-0"><div class="mx-auto"><img src="//images.ctfassets.net/xu4zh386cjva/1J3dV0XZWYj9v7b0qSrOIy/6ba8f0135f7e5139efe6616773e9ea2a/icon_word_of_mouth.png" class="card-img-top" style="max-width: 240px;"></div>
+<div class="card-body px-0"><h5 class="card-title text-primary text-center">We make word-of-mouth work for you when everyone's talking online</h5><div class="card-text">Word-of-mouth is the single most valuable marketing tool there is. Research shows 84% of customers trust reviews more than anything else when choosing services online.  We offer you a way to professionally profile your business to potential clients, and provide them with all the information they need to make an informed choice about booking with you. Word-of-mouth in the digital age to help your clients make a decision to book in with you right now. Reviews influence around two-thirds of purchasing decisions. Become part of We are Us and make reviews work for you.</div></div></div></div>
+-->
 {{> signup }}
 {{> footer }}
 {{> post }}

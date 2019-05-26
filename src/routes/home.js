@@ -1,6 +1,11 @@
+const { flatten } = require('lodash');
 const { getTemplate } = require('../getTemplate');
 const { getHomePageContent } = require('../content');
 const ImageSet = require('../content/image-set');
+const Card = require('../content/card');
+const Text = require('../content/text');
+const Image = require('../content/image');
+const features = require('../features');
 
 const template = getTemplate('home');
 
@@ -12,16 +17,38 @@ module.exports = async (_req, res) => {
     });
 
     const content = await getHomePageContent();
-    const { heroHeader, heroText } = content.fields;
+    const { heroHeader, heroText, leadText } = content.fields;
+
+    const cards = content.fields.cards.map(card => {
+        const { title, file: { url } } = card.fields.image.fields;
+
+        const image = new Image(url, title);
+
+        const text = flatten(card.fields.text.content
+            .filter(content => content.nodeType === 'paragraph')
+            .reduce((accumulator, current) => {
+                accumulator.push(current.content
+                    .filter(c => c.nodeType === 'text')
+                    .map(c => c.value));
+
+                return accumulator;
+            }, [])
+        );
+        
+        return new Card(card.fields.title, image, new Text(text));
+    });
 
     res.type('html');
 
-    console.log('sm', heroImageSet.sm);
+    // console.log('content', content);
 
     const html = template({
         heroImageSet,
         heroHeader,
-        heroText
+        heroText,
+        leadText,
+        cards,
+        features
     });
     
     res.html(html);
