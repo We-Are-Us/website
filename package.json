@@ -1,0 +1,29 @@
+{
+  "name": "@weareus/site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "engine": {
+    "node": ">=8.10.0",
+    "npm": ">=5.6.0"
+  },
+  "scripts": {
+    "start": "sls -- offline",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "contentful": "^7.6.0",
+    "handlebars": "^4.1.2",
+    "lambda-api": "^0.10.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.25",
+    "@types/node": "^8.10.48",
+    "aws-sdk": "^2.458.0",
+    "serverless": "^1.42.3",
+    "serverless-dotenv-plugin": "^2.1.1",
+    "serverless-offline": "^4.10.3"
+  }
+}

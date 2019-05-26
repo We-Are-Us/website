@@ -1,0 +1,31 @@
+{{> pre }}
+<div class="jumbotron jumbotron-fluid pt-0 my-0" style="background-color: transparent; height: 80vh;">
+    <div class="d-md-none">
+        <div style="background-image: url('{{heroImageSet.sm}}'); background-position: center center; background-repeat: no-repeat; background-size: cover; position: absolute; margin: 0px; padding: 0px; height: 80vh; width: 100vw; z-index: -1;"></div>
+    </div>
+    <div class="d-none d-md-block d-lg-none">
+        <div style="background-image: url('{{heroImageSet.md}}'); background-position: center center; background-repeat: no-repeat; background-size: cover; position: absolute; margin: 0px; padding: 0px; height: 80vh; width: 100vw; z-index: -1;"></div>
+    </div>
+    <div class="d-none d-lg-block d-xl-none">
+        <div style="background-image: url('{{heroImageSet.lg}}'); background-position: center center; background-repeat: no-repeat; background-size: cover; position: absolute; margin: 0px; padding: 0px; height: 80vh; width: 100vw; z-index: -1;"></div>
+    </div>
+    <div class="d-none d-xl-block">
+        <div style="background-image: url('{{heroImageSet.xl}}'); background-position: center center; background-repeat: no-repeat; background-size: cover; position: absolute; margin: 0px; padding: 0px; height: 80vh; width: 100vw; z-index: -1;"></div>
+    </div>
+    {{> navigation }}
+    <div class="container text-white pt-3 pt-lg-5 mx-auto">
+        <div class="row">
+            <div class="col-11 col-sm-8 col-md-6">
+                <h1 class="display-5">
+                    {{heroHeader}}
+                </h1>
+                <p class="lead">
+                    {{heroText}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{{> signup }}
+{{> footer }}
+{{> post }}
