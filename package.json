@@ -17,7 +17,7 @@
     "contentful": "^7.6.0",
     "handlebars": "^4.1.2",
     "lambda-api": "^0.10.1",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.25",
